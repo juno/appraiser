@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+#
+# = appraiser(1)
+#
+# == USAGE
+#  appraiser  # with ./Gemfile
+#
+# == INSTALL
+#  gem install appraiser
+
+$:.unshift(File.expand_path('../../lib', __FILE__)) if $0 == __FILE__
+require 'appraiser'
+Appraiser.execute(*ARGV)
