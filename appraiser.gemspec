@@ -8,11 +8,9 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Junya Ogura"]
   s.email       = ["junyaogura@gmail.com"]
-  s.homepage    = "http://sooey.com/"
+  s.homepage    = "https://github.com/juno/appraiser"
   s.summary     = %q{`appraiser` is a simple command line utility for gem paranoia.}
   s.description = %q{`appraiser` is a command line utility which displays gem information in `./Gemfile`.}
-
-  s.rubyforge_project = "appraiser"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
