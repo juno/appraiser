@@ -1,5 +1,5 @@
-Appraiser = a simple command line utility for gem paranoia
-==========================================================
+Appraiser = a simple command line utility for Gemfile
+=====================================================
 
 `appraiser` displays gem information from `./Gemfile`.
 

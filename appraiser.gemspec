@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Junya Ogura"]
   s.email       = ["junyaogura@gmail.com"]
   s.homepage    = "https://github.com/juno/appraiser"
-  s.summary     = %q{`appraiser` is a simple command line utility for gem paranoia.}
+  s.summary     = %q{`appraiser` is a simple command line utility for Gemfile.}
   s.description = %q{`appraiser` is a command line utility which displays gem information in `./Gemfile`.}
 
   s.files         = `git ls-files`.split("\n")
