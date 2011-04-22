@@ -4,7 +4,8 @@ Appraiser = a simple command line utility for gem paranoia
 `appraiser` displays gem information from `./Gemfile`.
 
 Like this:
-![Screenshot](http://farm5.static.flickr.com/4104/5603713804_d24546947d_z.jpg)
+
+![Screenshot](http://farm6.static.flickr.com/5026/5643970264_2b995ed4b1.jpg)
 
 
 Install
