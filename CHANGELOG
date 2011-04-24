@@ -1,0 +1,17 @@
+== 0.1.5
+
+* gem commandify [amatsuda]
+  The CLI command moved to a Rubygems' subcommand.
+  example:
+    (basic)
+    $ gem appraiser
+
+    (shorthand)
+    $ gem a
+
+    ("group" option)
+    $ gem a -g test
+
+== 0.1.4
+
+* First release
