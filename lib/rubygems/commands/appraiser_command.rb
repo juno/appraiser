@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+require 'rubygems/command'
+require 'rubygems/dependency'
 require 'bundler'
 require 'colored'
 require 'json'
@@ -8,18 +10,24 @@ require 'slop'
 
 require 'appraiser/version'
 
-module Appraiser
-  extend self
-
+class Gem::Commands::AppraiserCommand < Gem::Command
   RUBY_GEMS_URL = 'http://rubygems.org/api/v1/gems/%s.json'
   LINE = '-' * 60
 
-  def execute(*args)
-    opts = Slop.parse do
-      on :g, :group, 'Group', true
-    end
+  def initialize
+    super 'appraiser', 'appraiser'
 
-    group = opts.group? ? opts[:group].to_sym : :default
+    add_option('-g', '--group=GROUP', 'Group') do |group, options|
+      options[:group] = group
+    end
+  end
+
+  def usage # :nodoc:
+    "#{program_name} [-g group]"
+  end
+
+  def execute
+    group = (options[:group] || :default).to_sym
 
     dependencies_for(group).each do |dependency|
       json = load_json(dependency.name)
@@ -75,5 +83,4 @@ module Appraiser
   rescue
     number.to_s
   end
-
 end
