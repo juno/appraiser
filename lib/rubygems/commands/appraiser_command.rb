@@ -6,7 +6,6 @@ require 'bundler'
 require 'colored'
 require 'json'
 require 'open-uri'
-require 'slop'
 
 require 'appraiser/version'
 
