@@ -14,7 +14,7 @@ class Gem::Commands::AppraiserCommand < Gem::Command
   LINE = '-' * 60
 
   def initialize
-    super 'appraiser', 'appraiser'
+    super 'appraiser', 'Display gem information in ./Gemfile'
 
     add_option('-g', '--group=GROUP', 'Group') do |group, options|
       options[:group] = group

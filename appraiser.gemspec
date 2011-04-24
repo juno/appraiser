@@ -9,13 +9,28 @@ Gem::Specification.new do |s|
   s.authors     = ["Junya Ogura"]
   s.email       = ["junyaogura@gmail.com"]
   s.homepage    = "https://github.com/juno/appraiser"
-  s.summary     = %q{`appraiser` is a simple command line utility for Gemfile.}
-  s.description = %q{`appraiser` is a command line utility which displays gem information in `./Gemfile`.}
+  s.licenses    = ["MIT"]
+  s.summary     = %q{`appraiser` is a simple rubygems subcommand for Gemfile.}
+  s.description = %q{`appraiser` is a rubygems subcommand which displays gem information in `./Gemfile`.}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.post_install_message = %q{
+appraiser installed as a rubygems subcommand.
+
+  (basic)
+  $ gem appraiser
+
+  (shorthand)
+  $ gem a
+
+  ("group" option)
+  $ gem a -g test
+
+}
 
   s.add_dependency('bundler', ['~> 1.0'])
   s.add_dependency('colored', ['~> 1.2'])

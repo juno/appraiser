@@ -1,30 +1,34 @@
-Appraiser = a simple command line utility for Gemfile
-=====================================================
+Appraiser = a simple rubygems subcommand for Gemfile
+====================================================
 
 `appraiser` displays gem information from `./Gemfile`.
 
 Like this:
 
-![Screenshot](http://farm6.static.flickr.com/5026/5643970264_2b995ed4b1.jpg)
+![Screenshot](http://farm6.static.flickr.com/5263/5650073256_6ed10dc831_o.png)
 
 
 Install
 -------
 
+appraiser installed as a rubygems subcommand.
+
     $ gem install appraiser
+    $ gem help commands | grep appraiser
+        appraiser         Display gem information in ./Gemfile
 
 
 Usage
 -----
 
-Appraiser normally displays runtime dependencies.
+Normally displays runtime dependencies.
 
     $ cd /path/to/project_with_Gemfile/
-    $ appraiser
+    $ gem appraiser
 
 or, displays other dependencies with `-g GROUP`.
 
-    $ appraiser -g development
+    $ gem appraiser -g development
 
 
 Contributing
