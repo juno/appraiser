@@ -36,5 +36,7 @@ appraiser installed as a rubygems subcommand.
   s.add_dependency('colored', ['~> 1.2'])
   s.add_dependency('json')
 
+  s.add_development_dependency('rake', ['~> 0.9'])
   s.add_development_dependency('rspec', ['~> 2.3'])
+  s.add_development_dependency('webmock', ['~> 1.7'])
 end

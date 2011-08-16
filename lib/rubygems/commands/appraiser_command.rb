@@ -6,12 +6,16 @@ require 'bundler'
 require 'colored'
 require 'json'
 require 'open-uri'
+require 'stringio'
 
 require 'appraiser/version'
 
 class Gem::Commands::AppraiserCommand < Gem::Command
+
   RUBY_GEMS_URL = 'http://rubygems.org/api/v1/gems/%s.json'
+
   LINE = '-' * 60
+
 
   def initialize
     super 'appraiser', 'Display gem information in ./Gemfile'
@@ -26,14 +30,22 @@ class Gem::Commands::AppraiserCommand < Gem::Command
   end
 
   def execute
+    process($stdout)
+  end
+
+
+  private
+
+  # @param [IO] output
+  def process(output)
     group = (options[:group] || :default).to_sym
 
     dependencies_for(group).each do |dependency|
       json = load_json(dependency.name)
 
       if json.empty?
-        puts dependency.name.green
-        puts "Source   : #{dependency.source.to_s.cyan.underline}"
+        output.puts dependency.name.green
+        output.puts "Source   : #{dependency.source.to_s.cyan.underline}"
       else
         name = json['name']
         authors = json['authors']
@@ -43,19 +55,17 @@ class Gem::Commands::AppraiserCommand < Gem::Command
         src_uri = json['source_code_uri']
         info = json['info'].split("\n").first.strip
 
-        puts "#{name.green} (by #{authors})"
-        puts "Downloads: #{downloads.blue}"
-        puts "Project  : #{project_uri.cyan.underline}" if project_uri
-        puts "Document : #{doc_uri.cyan.underline}" if doc_uri
-        puts "Source   : #{src_uri.cyan.underline}" if src_uri
-        puts info
+        output.puts "#{name.green} (by #{authors})"
+        output.puts "Downloads: #{downloads.blue}"
+        output.puts "Project  : #{project_uri.cyan.underline}" if project_uri
+        output.puts "Document : #{doc_uri.cyan.underline}" if doc_uri
+        output.puts "Source   : #{src_uri.cyan.underline}" if src_uri
+        output.puts info
       end
 
-      puts LINE
+      output.puts LINE
     end
   end
-
-  private
 
   # @param [String] gem_name
   # @return [Hash]
@@ -68,7 +78,7 @@ class Gem::Commands::AppraiserCommand < Gem::Command
   # @param [Symbol] group
   # @return [Array<Bundler::Dependency>]
   def dependencies_for(group)
-    Bundler.definition.dependencies.select{ |i| i.groups.include? group }
+    Bundler.definition.dependencies.select { |i| i.groups.include? group }
   end
 
   # @param [Integer] number
@@ -82,4 +92,5 @@ class Gem::Commands::AppraiserCommand < Gem::Command
   rescue
     number.to_s
   end
+
 end
