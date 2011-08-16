@@ -1,3 +1,8 @@
+== 0.1.6
+
+* add specs for Gem::Commands::AppraiserCommand
+* testing on travis-ci.org
+
 == 0.1.5
 
 * gem commandify [amatsuda]
