@@ -1,3 +1,7 @@
+== 0.1.7
+
+* fix .travis.yml placement
+
 == 0.1.6
 
 * add specs for Gem::Commands::AppraiserCommand
