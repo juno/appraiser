@@ -1,6 +1,8 @@
 Appraiser = a simple rubygems subcommand for Gemfile
 ====================================================
 
+[![Build Status](http://travis-ci.org/juno/appraiser.png)](http://travis-ci.org/juno/appraiser)
+
 `appraiser` displays gem information from `./Gemfile`.
 
 Like this:
