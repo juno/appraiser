@@ -87,7 +87,7 @@ describe Gem::Commands::AppraiserCommand do
       it "not raises exception" do
         expect {
           command.send(:process, output)
-        }.should_not raise_error
+        }.to_not raise_error
       end
 
       it "puts dependency source" do
