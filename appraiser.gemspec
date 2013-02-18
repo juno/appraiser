@@ -38,5 +38,5 @@ appraiser installed as a rubygems subcommand.
 
   s.add_development_dependency('rake', ['~> 0.9'])
   s.add_development_dependency('rspec', ['~> 2.3'])
-  s.add_development_dependency('webmock', ['~> 1.7'])
+  s.add_development_dependency('webmock', ['~> 1.9'])
 end
