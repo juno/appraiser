@@ -1,5 +1,4 @@
-Appraiser = a simple rubygems subcommand for Gemfile [![Build Status](http://travis-ci.org/juno/appraiser.png)](http://travis-ci.org/juno/appraiser)
-====
+# Appraiser = a simple rubygems subcommand for Gemfile
 
 [![Build Status](https://travis-ci.org/juno/appraiser.png?branch=master)](https://travis-ci.org/juno/appraiser)
 
@@ -10,8 +9,7 @@ Like this:
 ![Screenshot](http://farm6.staticflickr.com/5263/5650073256_6ed10dc831_o.png)
 
 
-Install
-----
+## Install
 
 appraiser installed as a rubygems subcommand.
 
@@ -20,8 +18,7 @@ appraiser installed as a rubygems subcommand.
         appraiser         Display gem information in ./Gemfile
 
 
-Usage
-----
+## Usage
 
 Normally displays runtime dependencies.
 
@@ -33,13 +30,11 @@ or, displays other dependencies with `-g GROUP`.
     $ gem appraiser -g development
 
 
-Contributing
-----
+## Contributing
 
 Once you've made your great commits: Fork, fix, then send me a pull request.
 
 
-Copyright
-----
+## Copyright
 
-Copyright (c) 2011 Junya Ogura. See LICENSE.txt for further details.
+Copyright (c) 2011-2013 Junya Ogura. See LICENSE.txt for further details.
