@@ -1,11 +1,13 @@
 Appraiser = a simple rubygems subcommand for Gemfile [![Build Status](http://travis-ci.org/juno/appraiser.png)](http://travis-ci.org/juno/appraiser)
 ====
 
+[![Build Status](https://travis-ci.org/juno/appraiser.png?branch=master)](https://travis-ci.org/juno/appraiser)
+
 `appraiser` displays gem information from `./Gemfile`.
 
 Like this:
 
-![Screenshot](http://farm6.static.flickr.com/5263/5650073256_6ed10dc831_o.png)
+![Screenshot](http://farm6.staticflickr.com/5263/5650073256_6ed10dc831_o.png)
 
 
 Install
