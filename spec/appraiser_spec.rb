@@ -61,14 +61,16 @@ describe Gem::Commands::AppraiserCommand do
         stub_request(:get, 'http://rubygems.org/api/v1/gems/rails.json').
           to_return(:status => 200, :body => @rails_json)
         command.send(:process, output)
-        a_request(:get, 'http://rubygems.org/api/v1/gems/rails.json').should have_been_made.once
+        expect(a_request(:get, 'http://rubygems.org/api/v1/gems/rails.json')) \
+          .to have_been_made.once
       end
 
       it "not retrieves :test group dependency json from RubyGems API" do
         stub_request(:get, 'http://rubygems.org/api/v1/gems/rails.json').
           to_return(:status => 200, :body => @rails_json)
         command.send(:process, output)
-        a_request(:get, 'http://rubygems.org/api/v1/gems/rspec.json').should_not have_been_made
+        expect(a_request(:get, 'http://rubygems.org/api/v1/gems/rspec.json')) \
+          .not_to have_been_made
       end
     end
 
@@ -121,38 +123,39 @@ describe Gem::Commands::AppraiserCommand do
       end
 
       it "have key 'name'" do
-        @result.should have_key('name')
-        @result['name'].should eq('rails')
+        expect(@result).to have_key('name')
+        expect(@result['name']).to eq('rails')
       end
 
       it "have key 'authors'" do
-        @result.should have_key('authors')
-        @result['authors'].should eq('David Heinemeier Hansson')
+        expect(@result).to have_key('authors')
+        expect(@result['authors']).to eq('David Heinemeier Hansson')
       end
 
       it "have key 'downloads'" do
-        @result.should have_key('downloads')
-        @result['downloads'].should eq(4977205)
+        expect(@result).to have_key('downloads')
+        expect(@result['downloads']).to eq(4977205)
       end
 
       it "have key 'project_uri'" do
-        @result.should have_key('project_uri')
-        @result['project_uri'].should eq('http://rubygems.org/gems/rails')
+        expect(@result).to have_key('project_uri')
+        expect(@result['project_uri']).to eq('http://rubygems.org/gems/rails')
       end
 
       it "have key 'documentation_uri'" do
-        @result.should have_key('documentation_uri')
-        @result['documentation_uri'].should eq('http://api.rubyonrails.org')
+        expect(@result).to have_key('documentation_uri')
+        expect(@result['documentation_uri']).to eq('http://api.rubyonrails.org')
       end
 
       it "have key 'source_code_uri'" do
-        @result.should have_key('source_code_uri')
-        @result['source_code_uri'].should eq('http://github.com/rails/rails')
+        expect(@result).to have_key('source_code_uri')
+        expect(@result['source_code_uri']).to eq('http://github.com/rails/rails')
       end
 
       it "have key 'info'" do
-        @result.should have_key('info')
-        @result['info'].should eq("Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.")
+        expect(@result).to have_key('info')
+        expect(@result['info']) \
+          .to eq("Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration.")
       end
     end
   end
@@ -169,7 +172,7 @@ describe Gem::Commands::AppraiserCommand do
       Bundler.stub_chain(:definition, :dependencies) { dependencies }
 
       result = command.send(:dependencies_for, group)
-      result.should have(2).dependencies
+      expect(result).to have(2).dependencies
     end
   end
 
