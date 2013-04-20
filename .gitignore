@@ -2,5 +2,6 @@
 .bundle
 .rvmrc
 .ruby-version
+coverage
 Gemfile.lock
 pkg/*
