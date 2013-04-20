@@ -40,4 +40,5 @@ appraiser installed as a rubygems subcommand.
   s.add_development_dependency('rspec', ['~> 2.13'])
   s.add_development_dependency('webmock', ['~> 1.11'])
   s.add_development_dependency('coveralls')
+  s.add_development_dependency('simplecov')
 end
