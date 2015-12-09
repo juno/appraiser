@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 require 'simplecov'
 require 'coveralls'
 
@@ -19,7 +17,16 @@ require 'rubygems/commands/appraiser_command'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
+  config.run_all_when_everything_filtered = true
+
   config.expect_with :rspec do |c|
-    c.syntax = :expect  # disables `should`
+    c.syntax = :expect
   end
+
+  config.mock_with :rspec do |mocks|
+    mocks.syntax = :expect
+    mocks.verify_partial_doubles = true
+  end
+
+  config.order = 'random'
 end

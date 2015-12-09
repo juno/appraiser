@@ -31,13 +31,13 @@ appraiser installed as a rubygems subcommand.
 
 }
 
-  s.add_dependency('bundler', ['~> 1.3'])
+  s.add_dependency('bundler', ['~> 1.10.6'])
   s.add_dependency('colored', ['~> 1.2'])
   s.add_dependency('json')
 
-  s.add_development_dependency('rake', ['~> 10.3'])
-  s.add_development_dependency('rspec', ['~> 2.13'])
-  s.add_development_dependency('webmock', ['~> 1.11'])
+  s.add_development_dependency('rake', ['~> 10.4.2'])
+  s.add_development_dependency('rspec', ['~> 3.4.0'])
+  s.add_development_dependency('webmock', ['~> 1.22.3'])
   s.add_development_dependency('coveralls')
   s.add_development_dependency('simplecov')
 end
